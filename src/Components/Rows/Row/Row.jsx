@@ -67,7 +67,6 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
       {
         <div style={{ padding: "40px" }}>
           {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}{" "}
-          Conditionally render YouTube player
         </div>
       }
     </div>
