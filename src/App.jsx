@@ -1,19 +1,17 @@
-import { useState } from "react";
 import "./App.css";
-
+import Home from "./pages/Home/Home";
 import Header from "./Components/Header/header";
 import Footer from "./Components/Footer/Footer";
 import Banner from "./Components/Banner/Banner";
-
+import RowList from "./Components/Rows/RowList/RowList";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-   
+      <Home />
       <Header />
-      <Banner/>
+      <Banner />
+      <RowList />
       <Footer />
     </>
   );
