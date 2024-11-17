@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0..900;1..900&family=Lexend:wght@100..900&display=swap");
 
 :root {
-  --font-base: "Lexend", sans-serif;
+  --font-base: "Lexend", sans-ersif;
   --font-second-base: "Inter", sans-serif;
   --bg-color: #111;
   --primary-color: #ffffff;
@@ -15,7 +15,7 @@
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--primary-color);
-  font-family: var(--font-base);
+  background-color: var(--bg-color) !important;
+  color: var(--primary-color) !important;
+  font-family: var(--font-base) !important;
 }

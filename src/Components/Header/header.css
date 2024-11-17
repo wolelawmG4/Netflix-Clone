@@ -1,41 +1,126 @@
+
+.navbar_full_width {
+  width: 100%;
+  padding: 0; 
+}
+
 .header_outer_contsiner {
   position: sticky;
   top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(20, 20, 20);
-  /* background-color: transparent; */
+  background-color: rgb(20, 20, 20); /* Can change to transparent if desired */
   height: 10vh;
-  color: white;
-  transition: all 0.5s;
-  transition-timing-function: ease-in;
+  transition: all 0.5s ease-in;
   z-index: 1;
-  /* background-color: red; */
+  width: 100%;
 }
-.nav_black {
-  background-color: rgb(20, 20, 20);
-}
+
+/* Main header container (flexbox layout) */
 .header_container {
-  width: 90%;
+  width: 100%; /* Ensure the header container uses the full width of the navbar */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Left section: Logo and links */
 .header_left ul {
-  width: 140%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly; /* Distribute links evenly */
   align-items: center;
   list-style: none;
-  cursor: pointer;
-  /* background-color: lightblue; */
+  width: 100%; /* Make sure it uses the full available width */
+  padding-left: 0;
+  margin-left: 0;
 }
+
+.header_left li {
+  cursor: pointer;
+  padding-right: 2rem;
+}
+
+/* Right section: Icons */
 .header_right ul {
-  width: 150%;
   display: flex;
   justify-content: space-around;
   list-style: none;
+  width: 100%; /* Ensure the right icons take up less space */
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.header_right li {
   cursor: pointer;
+  padding-left: 1rem;
+}
+
+/* Make sure header links and icons are aligned properly */
+.header_right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* On smaller screens, show both left and right sections when collapsed */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    display: flex;
+    justify-content: flex-start; /* Align both the left and right sections */
+  }
+
+  .header_left ul {
+    display: flex; /* Show the links even on small screens */
+    flex-direction: column; /* Stack the links vertically when collapsed */
+    width: 100%; /* Ensure it spans the full width */
+    text-align: left;
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: column; /* Make the list items stack vertically */
+    text-align: left;
+  }
+
+  .navbar-nav li {
+    padding: 1rem;
+    font-size: 1.2rem;
+    width: 100%; /* Ensure the links span the full width */
+  }
+
+  .navbar-nav li:hover {
+    background-color: rgb(40, 40, 40); /* Add hover effect for better UX */
+  }
+
+  /* Make the hamburger menu button visible */
+  .navbar-toggler {
+    display: block !important; /* Ensure hamburger menu is visible */
+  }
+
+  /* Right-side icons should also be shown */
+  .header_right ul {
+    display: flex; /* Show icons on small screens */
+    justify-content: space-around;
+    width: 100%;
+    flex-direction: row;
+    text-align: right;
+  }
+
+  .header_right li {
+    padding: 1rem;
+  }
+}
+
+/* On large screens, show everything in a row and distribute the left-side links evenly */
+@media (min-width: 992px) {
+  .header_left ul {
+    display: flex; /* Show links in a row */
+    justify-content: space-evenly; /* Distribute the links evenly across the width */
+    width: 100%; /* Allow it to take up full width */
+  }
+
+  .navbar-toggler {
+    display: none; /* Hide hamburger menu on larger screens */
+  }
 }

@@ -7,7 +7,6 @@ import RowList from "./Components/Rows/RowList/RowList";
 function App() {
   return (
     <>
-      
       <Header />
       <Banner />
       <RowList />

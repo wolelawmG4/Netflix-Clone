@@ -5,46 +5,59 @@ import SearchIcon from "@mui/icons-material/Search";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { Navbar, Nav, Button, Container } from "react-bootstrap";
 
 function Header() {
   return (
-    <div className="header_outer_contsiner">
-      <div className="header_container">
+    <Navbar bg="dark" variant="dark" expand="lg" className="navbar_full_width">
+      <Container fluid>
+        {/* Left section: Logo */}
         <div className="header_left">
-          <ul>
-            <li>
-              <img src={NetflixLogo} alt="Netflix Logo" width="100" />
-            </li>
-
-            <li>Home</li>
-            <li>TVShow</li>
-            <li>Movies</li>
-            <li>Latest</li>
-            <li>MyList</li>
-            <li>Browse by Languages</li>
-          </ul>
+          <Navbar.Brand href="#">
+            <img src={NetflixLogo} alt="Netflix Logo" width="100" />
+          </Navbar.Brand>
         </div>
 
-        <div className="header_right">
-          {
-            <ul>
-              <li>
-                <SearchIcon />
-              </li>
-              <li>
-                <NotificationsNoneIcon />
-              </li>
-              <li>
-                <AccountBoxIcon />
-              </li>
-              <li>
-                <ArrowDropDownIcon />
-              </li>
-            </ul>
-          }
-        </div>
-      </div>
-    </div>
+        {/* Hamburger menu for mobile */}
+        <Navbar.Toggle aria-controls="navbar-nav" />
+
+        <Navbar.Collapse id="navbar-nav">
+          {/* Main navigation links and icons inside the collapse */}
+          <div className="header_container">
+            <div className="header_left">
+              <Nav className="ml-auto">
+                <ul>
+                  <li>Home</li>
+                  <li>TV Shows</li>
+                  <li>Movies</li>
+                  <li>Latest</li>
+                  <li>My List</li>
+                  <li>Browse by Languages</li>
+                </ul>
+              </Nav>
+            </div>
+
+            {/* Right section: Icons */}
+            <div className="header_right">
+              <ul>
+                <li>
+                  <SearchIcon />
+                </li>
+                <li>
+                  <NotificationsNoneIcon />
+                </li>
+                <li>
+                  <AccountBoxIcon />
+                </li>
+                <li>
+                  <ArrowDropDownIcon />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 

@@ -1,54 +1,69 @@
-import { DriveFileMove, Instagram, YouTube } from "@mui/icons-material";
 import React from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import "./footer.css"
+import "./footer.css";
 
 function Footer() {
   return (
     <div className="footer_outer_container">
-      <div className="footer_inner_container">
-        <div className="footer_icons">
-          <FacebookOutlinedIcon />
-          <InstagramIcon />
-          <YouTubeIcon />
-        </div>
-        <div className="footer_data">
-          <div>
+      <Container className="footer_inner_container">
+        <Row className="footer_icons justify-content-center mb-4">
+          {/* Social Media Icons */}
+          <FacebookOutlinedIcon className="mx-3" />
+          <InstagramIcon className="mx-3" />
+          <YouTubeIcon className="mx-3" />
+        </Row>
+
+        <Row className="footer_data justify-content-between">
+          <Col xs={12} sm={6} md={3} className="footer_col">
             <ul>
               <li>Audio Description</li>
               <li>Investor Relations</li>
               <li>Legal Notice</li>
             </ul>
-          </div>
-          <div>
+          </Col>
+
+          <Col xs={12} sm={6} md={3} className="footer_col">
             <ul>
               <li>Help Center</li>
               <li>Jobs</li>
               <li>Cookie Preferences</li>
             </ul>
-          </div>
-          <div>
+          </Col>
+
+          <Col xs={12} sm={6} md={3} className="footer_col">
             <ul>
               <li>Gift Cards</li>
               <li>Terms of Use</li>
               <li>Corporate Information</li>
             </ul>
-          </div>
-          <div>
+          </Col>
+
+          <Col xs={12} sm={6} md={3} className="footer_col">
             <ul>
               <li>Media Center</li>
               <li>Privacy</li>
               <li>Contact US</li>
             </ul>
-          </div>
-        </div>
-        <div className="service_code">
-          <p>Service Code</p>
-        </div>
-        <div className="copy-write">&copy; 1997-2004 Netflix, Inc.</div>
-      </div>
+          </Col>
+        </Row>
+
+        <Row className="service_code justify-content-center mb-4">
+          <Col xs={12} className="text-center">
+            <Button variant="outline-light" className="service-code-btn">
+              Service Code
+            </Button>
+          </Col>
+        </Row>
+
+        <Row className="copy-write justify-content-center">
+          <Col xs={12} className="text-center">
+            <p>&copy; 1997-2004 Netflix, Inc.</p>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }

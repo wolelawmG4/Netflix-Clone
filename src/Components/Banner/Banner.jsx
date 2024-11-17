@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../utils/axios";
 import requests from "../../utils/requests";
-import "./banner.css"
-
+import "./banner.css";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 const Banner = () => {
   const [movie, setMovies] = useState({});
+
   useEffect(() => {
     (async () => {
       try {
         const request = await axios.get(requests.fetchTopRatedMovies);
-        console.log(request);
         setMovies(
           request.data.results[
             Math.floor(Math.random() * request.data.results.length)
@@ -21,8 +21,9 @@ const Banner = () => {
       }
     })();
   }, []);
-  function truncate(str,n){
-    return str?.length> n? str.substr(0,n-1)+"..." : str;
+
+  function truncate(str, n) {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
 
   return (
@@ -35,17 +36,23 @@ const Banner = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="banner_content">
-        <h1 className="banner_title">
-          {movie?.title || movie?.name || movie?.original_name}
-        </h1>
-        <div className="banner_buttons">
-          <button className="banner_button play">Play</button>
-          <button className="banner_button play">My List</button>
-        </div>
-        <h1 className="banner_description">{truncate(movie?.overview, 150)}</h1>
-      </div>
-      <div className="banner_fadeBotton"/>
+      <Container className="banner_content">
+        <Row>
+          <Col xs={12} md={8}>
+            <h1 className="banner_title">
+              {movie?.title || movie?.name || movie?.original_name}
+            </h1>
+            <div className="banner_buttons">
+              <Button className="banner_button play">Play</Button>
+              <Button className="banner_button play">My List</Button>
+            </div>
+            <h1 className="banner_description">
+              {truncate(movie?.overview, 150)}
+            </h1>
+          </Col>
+        </Row>
+      </Container>
+      <div className="banner_fadeBotton" />
     </div>
   );
 };

@@ -3,43 +3,38 @@ import "./Row.css";
 import axios from "../../../utils/axios";
 import movieTrailer from "movie-trailer";
 import YouTube from "react-youtube";
+import { Row as BootstrapRow, Col } from "react-bootstrap";
 
 const Row = ({ title, fetchUrl, isLargeRow }) => {
-  const [movies, setMovies] = useState([]); // Consistent naming of state setter
-  const [trailerUrl, setTrailerUrl] = useState(""); // Store YouTube trailer URL
+  const [movies, setMovies] = useState([]);
+  const [trailerUrl, setTrailerUrl] = useState("");
   const base_url = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
-    // This is an async function wrapped in useEffect
     const fetchMovies = async () => {
       try {
-        console.log(fetchUrl); // Debugging the URL
         const request = await axios.get(fetchUrl);
-        console.log(request); // Debugging the response
         setMovies(request.data.results);
       } catch (error) {
         console.log("Error fetching data:", error);
       }
     };
-
-    fetchMovies(); // Call the fetchMovies function
+    fetchMovies();
   }, [fetchUrl]);
 
   const handleClick = (movie) => {
     if (trailerUrl) {
-      setTrailerUrl(""); // Reset trailer URL if it's already set
+      setTrailerUrl("");
     } else {
       movieTrailer(movie?.title || movie?.name || movie?.original_name)
         .then((url) => {
-          console.log(url);
           const urlParams = new URLSearchParams(new URL(url).search);
-          setTrailerUrl(urlParams.get("v")); // Get video ID from URL
+          setTrailerUrl(urlParams.get("v"));
         })
         .catch((error) => console.log("Error fetching trailer:", error));
     }
   };
 
-  // YouTube player options
   const opts = {
     height: "390",
     width: "100%",
@@ -51,24 +46,30 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
   return (
     <div className="row">
       <h1>{title}</h1>
-      <div className="row_posters">
+      <BootstrapRow className="row_posters">
         {movies?.map((movie, index) => (
-          <img
-            onClick={() => handleClick(movie)}
+          <Col
+            xs={6}
+            sm={4}
+            md={3}
+            lg={2}
             key={index}
-            src={`${base_url}${
-              isLargeRow ? movie.poster_path : movie.backdrop_path
-            }`} // Decide image path
-            alt={movie.name}
-            className={`row_poster ${isLargeRow && "row_posterLarge"}`} // Conditional className
-          />
+            className="d-flex justify-content-center"
+          >
+            <img
+              onClick={() => handleClick(movie)}
+              src={`${base_url}${
+                isLargeRow ? movie.poster_path : movie.backdrop_path
+              }`}
+              alt={movie.name}
+              className={`row_poster ${isLargeRow && "row_posterLarge"}`}
+            />
+          </Col>
         ))}
+      </BootstrapRow>
+      <div style={{ padding: "40px" }}>
+        {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
       </div>
-      {
-        <div style={{ padding: "40px" }}>
-          {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}{" "}
-        </div>
-      }
     </div>
   );
 };
