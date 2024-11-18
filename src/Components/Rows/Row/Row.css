@@ -30,7 +30,6 @@
   transform: scale(1.09);
 }
 
-/* Hide scrollbars */
 .row_posters::-webkit-scrollbar {
   display: none;
 }

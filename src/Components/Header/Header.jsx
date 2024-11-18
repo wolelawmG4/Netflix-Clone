@@ -18,11 +18,9 @@ function Header() {
           </Navbar.Brand>
         </div>
 
-        {/* Hamburger menu for mobile */}
         <Navbar.Toggle aria-controls="navbar-nav" />
 
         <Navbar.Collapse id="navbar-nav">
-          {/* Main navigation links and icons inside the collapse */}
           <div className="header_container">
             <div className="header_left">
               <Nav className="ml-auto">
@@ -37,7 +35,6 @@ function Header() {
               </Nav>
             </div>
 
-            {/* Right section: Icons */}
             <div className="header_right">
               <ul>
                 <li>

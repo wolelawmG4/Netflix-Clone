@@ -9,28 +9,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(20, 20, 20); /* Can change to transparent if desired */
+  background-color: rgb(20, 20, 20);
   height: 10vh;
   transition: all 0.5s ease-in;
   z-index: 1;
   width: 100%;
 }
 
-/* Main header container (flexbox layout) */
 .header_container {
-  width: 100%; /* Ensure the header container uses the full width of the navbar */
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Left section: Logo and links */
 .header_left ul {
   display: flex;
-  justify-content: space-evenly; /* Distribute links evenly */
+  justify-content: space-evenly;
   align-items: center;
   list-style: none;
-  width: 100%; /* Make sure it uses the full available width */
+  width: 100%;
   padding-left: 0;
   margin-left: 0;
 }
@@ -40,12 +38,11 @@
   padding-right: 2rem;
 }
 
-/* Right section: Icons */
 .header_right ul {
   display: flex;
   justify-content: space-around;
   list-style: none;
-  width: 100%; /* Ensure the right icons take up less space */
+  width: 100%;
   padding-left: 0;
   margin-left: 0;
 }
@@ -55,7 +52,6 @@
   padding-left: 1rem;
 }
 
-/* Make sure header links and icons are aligned properly */
 .header_right {
   display: flex;
   align-items: center;
@@ -63,48 +59,45 @@
 }
 
 .navbar-toggler {
-  border: 2px solid white; /* Add a white border */
-  border-radius: 5px; /* Optional: Round the edges for aesthetics */
+  border: 2px solid white;
+  border-radius: 5px;
 }
 
-/* On smaller screens, show both left and right sections when collapsed */
 @media (max-width: 991px) {
   .navbar-collapse {
     display: flex;
-    justify-content: flex-start; /* Align both the left and right sections */
+    justify-content: flex-start;
   }
 
   .header_left ul {
-    display: flex; /* Show the links even on small screens */
-    flex-direction: column; /* Stack the links vertically when collapsed */
-    width: 100%; /* Ensure it spans the full width */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     text-align: left;
   }
 
   .navbar-nav {
     display: flex;
-    flex-direction: column; /* Make the list items stack vertically */
+    flex-direction: column;
     text-align: left;
   }
 
   .navbar-nav li {
     padding: 1rem;
     font-size: 1.2rem;
-    width: 100%; /* Ensure the links span the full width */
+    width: 100%;
   }
 
   .navbar-nav li:hover {
-    background-color: rgb(40, 40, 40); /* Add hover effect for better UX */
+    background-color: rgb(40, 40, 40);
   }
 
-  /* Make the hamburger menu button visible */
   .navbar-toggler {
-    display: black !important; /* Ensure hamburger menu is visible */
+    display: black !important;
   }
 
-  /* Right-side icons should also be shown */
   .header_right ul {
-    display: flex; /* Show icons on small screens */
+    display: flex;
     justify-content: space-around;
     width: 100%;
     flex-direction: row;
@@ -116,15 +109,14 @@
   }
 }
 
-/* On large screens, show everything in a row and distribute the left-side links evenly */
 @media (min-width: 992px) {
   .header_left ul {
-    display: flex; /* Show links in a row */
-    justify-content: space-evenly; /* Distribute the links evenly across the width */
-    width: 100%; /* Allow it to take up full width */
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
   }
 
   .navbar-toggler {
-    display: none; /* Hide hamburger menu on larger screens */
+    display: none;
   }
 }

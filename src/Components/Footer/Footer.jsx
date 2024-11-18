@@ -10,7 +10,6 @@ function Footer() {
     <div className="footer_outer_container">
       <Container className="footer_inner_container">
         <Row className="footer_icons justify-content-center mb-4">
-          {/* Social Media Icons */}
           <FacebookOutlinedIcon className="mx-3" />
           <InstagramIcon className="mx-3" />
           <YouTubeIcon className="mx-3" />
