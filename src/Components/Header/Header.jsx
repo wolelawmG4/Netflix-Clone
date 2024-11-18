@@ -9,7 +9,7 @@ import { Navbar, Nav, Button, Container } from "react-bootstrap";
 
 function Header() {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="navbar_full_width">
+    <Navbar expand="lg" className="navbar_full_width">
       <Container fluid>
         {/* Left section: Logo */}
         <div className="header_left">
