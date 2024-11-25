@@ -5,11 +5,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { Navbar, Nav, Button, Container } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 
 function Header() {
   return (
-    <Navbar expand="lg" className="navbar_full_width">
+    <Navbar expand="lg" className="navbar_full_width header_outer_contsiner ">
       <Container fluid>
         {/* Left section: Logo */}
         <div className="header_left">
