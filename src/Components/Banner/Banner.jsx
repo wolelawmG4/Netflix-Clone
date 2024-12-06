@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../utils/axios";
 import requests from "../../utils/requests";
-import "./banner.css";
+import "./Banner.css";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
 const Banner = () => {
